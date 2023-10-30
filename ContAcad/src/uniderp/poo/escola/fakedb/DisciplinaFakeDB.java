@@ -18,6 +18,8 @@ public class DisciplinaFakeDB extends BaseGenericaFakeDB<Disciplina>{
         this.tabela.add(new Disciplina(10, "Química", "Ementa de Química"));         
     }
 
-    
+    public DisciplinaFakeDB(){
+        super();
+    }
     
 }

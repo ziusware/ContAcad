@@ -40,10 +40,11 @@ public class RendimentoEscolarRepositorio extends BaseGenericaCRUD<RendimentoEsc
     public RendimentoEscolar Update(RendimentoEscolar instancia) {
         RendimentoEscolar alvo = this.Read(instancia.getCodigo());
         alvo.setCodigo(instancia.getCodigo());
-        alvo.setAlunos(instancia.getAlunos());
-        alvo.setTurmas(instancia.getTurmas());
+        alvo.setAluno(instancia.getAluno());
+        alvo.setTurma(instancia.getTurma());
         alvo.setNotaP1(instancia.getNotaP1());
         alvo.setNotaP2(instancia.getNotaP2());
+        alvo.setTrabalhos(instancia.getTrabalhos());
         return alvo;
     }
     

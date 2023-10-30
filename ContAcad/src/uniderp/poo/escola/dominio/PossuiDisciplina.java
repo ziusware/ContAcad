@@ -1,35 +1,21 @@
 package uniderp.poo.escola.dominio;
 
 public abstract class PossuiDisciplina extends Identificador{
-    protected String disciplina;
-    protected int codDisciplina;
+    protected Disciplina disciplina;
 
-    public int getCodDisciplina() {
-        return codDisciplina;
-    }
-
-    public void setCodDisciplina(int codDisciplina) {
-        this.codDisciplina = codDisciplina;
-    }
-
-    public String getDisciplina() {
+    public Disciplina getDisciplina() {
         return disciplina;
     }
 
-    public void setDisciplina(String disciplina) {
+    public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
 
-    public PossuiDisciplina(int codigo, String disciplina, int codDisciplina) {
+    public PossuiDisciplina(int codigo, Disciplina disciplina) {
         super(codigo);
         this.disciplina = disciplina;
-        this.codDisciplina = codDisciplina;
     }
 
-    
-
-   
-
-    
+      
     
 }

@@ -16,6 +16,8 @@ public class ProfessorFakeDB extends BaseGenericaFakeDB<Professor>{
         
     }
     
-    
+    public ProfessorFakeDB(){
+        super();
+    }
     
 }

@@ -40,8 +40,9 @@ public class NotaTrabalhoRepositorio extends BaseGenericaCRUD<NotaTrabalhoFakeDB
     public NotaTrabalho Update(NotaTrabalho instancia) {
         NotaTrabalho alvo = this.Read(instancia.getCodigo());
         alvo.setCodigo(instancia.getCodigo());
-        alvo.setAlunos(instancia.getAlunos());
-        alvo.setTrabalho(instancia.getTrabalho());
+        alvo.setAluno(instancia.getAluno());
+        alvo.setTrabalhos(instancia.getTrabalhos());
+        alvo.setNota(instancia.getNota());
         return alvo;
     }
     

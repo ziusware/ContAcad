@@ -1,40 +1,35 @@
 package uniderp.poo.escola.menu;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import uniderp.poo.escola.dominio.Aluno;
-import uniderp.poo.escola.dominio.Disciplina;
+import uniderp.poo.escola.servico.AlunoServico;
 
 public class MenuDisciplina extends MenuGenerico{
 
     @Override
     protected void Menu(int codigo) {
         MenuNotas menu = new MenuNotas();
-        Set<Integer> discExibidas = new HashSet<>();
-        
+
         do {
-            System.out.println("#### Disciplinas ####");
+            System.out.println("\n#### DISCIPLINAS ####");
             opcoesDisponiveis.clear();
-            for (Disciplina disc : repoDisc.ReadAll()) {
-                for (Aluno aluno : repoAluno.ReadAll()) {
-                    if (disc.getCodigo() == aluno.getCodDisciplina() && !discExibidas.contains(disc.getCodigo())) {
-                        System.out.println(disc.getCodigo() + " - " + disc.getNome());
-                        discExibidas.add(disc.getCodigo()); // Adiciona o código da disciplina ao conjunto
-                        opcoesDisponiveis.add(disc.getCodigo());
-                    }
+            AlunoServico servAluno = new AlunoServico();
+            for (Aluno aluno : servAluno.Listar()) {
+                if (aluno.getCodigo() == codigo ) {
+                    System.out.println("\n---- DISCIPLINA DE " + aluno.getTurma().getDisciplina().getNome() + " -----");
+                    System.out.println("Código da Disciplina: " + aluno.getTurma().getDisciplina().getCodigo());
+                    System.out.println("Ementa da Disciplina: " + aluno.getTurma().getDisciplina().getEmenta());
+                    System.out.println("Professor(a): " + aluno.getTurma().getProfessores().getNome());
+                    opcoesDisponiveis.add(aluno.getTurma().getDisciplina().getCodigo());
                 }
-            }            
+            }
             System.out.println("0- Voltar");
-            System.out.print("Informe o código da disciplina: ");
+            System.out.print("Informe o código da Disciplina: ");
             opcao = scan.nextInt();
 
-            if (opcao == 0) break;
-            
             if (opcaoValida(opcao, opcoesDisponiveis)) {
                 menu.Menu(opcao);
             }else{
-                System.out.println("Código Inválido, tente novamente.");
+                System.out.println("Opção Inválida.");
             }
 
         } while (opcao != 0);

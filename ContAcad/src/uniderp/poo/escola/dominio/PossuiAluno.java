@@ -1,29 +1,19 @@
 package uniderp.poo.escola.dominio;
 
 public abstract class PossuiAluno extends Identificador{
-    protected String aluno;
-    protected int codAluno;
+    protected Aluno aluno;
 
-    public int getCodAluno() {
-        return codAluno;
-    }
-
-    public void setCodAluno(int codAluno) {
-        this.codAluno = codAluno;
-    }
-
-    public String getAlunos() {
+    public Aluno getAluno() {
         return aluno;
     }
 
-    public void setAlunos(String aluno) {
+    public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
 
-    public PossuiAluno(int codigo, String aluno, int codAluno) {
+    public PossuiAluno(int codigo, Aluno aluno) {
         super(codigo);
         this.aluno = aluno;
-        this.codAluno = codAluno;
     }
    
 }

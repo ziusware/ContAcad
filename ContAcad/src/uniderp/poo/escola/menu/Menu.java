@@ -7,7 +7,7 @@ public class Menu extends MenuGenerico{
         MenuProfessor menu = new MenuProfessor();
         MenuAluno menu2 = new MenuAluno();
         do {
-            System.out.println("#### MENU PRINCIPAL ####");
+            System.out.println("\n#### MENU PRINCIPAL ####");
             System.out.println("1. Professor");
             System.out.println("2. Aluno");
             System.out.println("0. Encerrar");

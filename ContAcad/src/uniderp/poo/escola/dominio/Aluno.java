@@ -4,15 +4,14 @@ import java.time.LocalDate;
 
 public class Aluno extends BasePessoa implements IImpressao{
     private int periodo;
-    private int codDisciplina;
-    private int codTurma;
+    private Turma turma;
 
-    public int getCodDisciplina() {
-        return codDisciplina;
+    public Turma getTurma() {
+        return turma;
     }
 
-    public void setCodDisciplina(int codDisciplina) {
-        this.codDisciplina = codDisciplina;
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
     public int getPeriodo() {
@@ -23,20 +22,12 @@ public class Aluno extends BasePessoa implements IImpressao{
         this.periodo = periodo;
     }
 
-    public int getCodTurma() {
-        return codTurma;
-    }
-
-    public void setCodTurma(int codTurma) {
-        this.codTurma = codTurma;
-    }
 
     public Aluno(int codigo, String nome, LocalDate dataNascimento, String username, String password, int periodo,
-            int codDisciplina, int codTurma) {
+            Turma turma) {
         super(codigo, nome, dataNascimento, username, password);
         this.periodo = periodo;
-        this.codDisciplina = codDisciplina;
-        this.codTurma = codTurma;
+        this.turma = turma;
     }
 
     @Override
@@ -48,8 +39,5 @@ public class Aluno extends BasePessoa implements IImpressao{
         System.out.println("Username: " + this.username);
         System.out.println("Password: " + this.password);               
     }
-
-    
-
     
 }

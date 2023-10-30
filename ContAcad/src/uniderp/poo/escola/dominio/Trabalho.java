@@ -1,5 +1,7 @@
 package uniderp.poo.escola.dominio;
 
+import java.util.ArrayList;
+
 public class Trabalho extends PossuiDisciplina implements IImpressao{
     private String descricao;
 
@@ -11,8 +13,10 @@ public class Trabalho extends PossuiDisciplina implements IImpressao{
         this.descricao = descricao;
     }
 
-    public Trabalho(int codigo, String disciplina, int codDisciplina, String descricao) {
-        super(codigo, disciplina, codDisciplina);
+    
+
+    public Trabalho(int codigo, Disciplina disciplina, String descricao) {
+        super(codigo, disciplina);
         this.descricao = descricao;
     }
 

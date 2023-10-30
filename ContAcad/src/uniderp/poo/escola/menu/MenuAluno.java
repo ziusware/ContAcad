@@ -1,6 +1,7 @@
 package uniderp.poo.escola.menu;
 
 import uniderp.poo.escola.dominio.Aluno;
+import uniderp.poo.escola.servico.AlunoServico;
 
 public class MenuAluno extends MenuGenerico{
 
@@ -8,10 +9,11 @@ public class MenuAluno extends MenuGenerico{
     protected void Menu(int codigo) {
         MenuNotas menu = new MenuNotas();
         do {
-            System.out.println("#### ALUNOS ####");
+            System.out.println("\n#### ALUNOS ####");
             opcoesDisponiveis.clear();
-            for (Aluno aluno : repoAluno.ReadAll()) {
-                if(aluno.getCodDisciplina() == codigo){
+            AlunoServico servAluno = new AlunoServico();
+            for (Aluno aluno : servAluno.Listar()) {
+                if(aluno.getCodigo() == codigo){
                     System.out.println(aluno.getCodigo() + " - " + aluno.getNome());
                     opcoesDisponiveis.add(aluno.getCodigo());
                 }
@@ -20,12 +22,10 @@ public class MenuAluno extends MenuGenerico{
             System.out.print("Informe o código do aluno:");
             opcao = scan.nextInt();
 
-            if(opcao == 0) break;
-
             if(opcaoValida(opcao, opcoesDisponiveis)){
                 menu.Menu(opcao);
             }else{
-                System.out.println("Código Inválido, tente novamente.");
+                System.out.println("Código Inválido");
             }
 
         } while (opcao != 0);
@@ -36,22 +36,21 @@ public class MenuAluno extends MenuGenerico{
     protected void MenuAlunos(){
 
         do {
-            System.out.println("#### ALUNOS ####");
+            System.out.println("\n#### ALUNOS ####");
             opcoesDisponiveis.clear();
-            for (Aluno aluno : repoAluno.ReadAll()) {
-                System.out.println(aluno.getCodigo() + " - " + aluno.getNome());
+            AlunoServico servAluno = new AlunoServico();
+            for (Aluno aluno : servAluno.Listar()) {
+                System.out.println(aluno.getCodigo() + "- " + aluno.getNome());
                 opcoesDisponiveis.add(aluno.getCodigo());
             }           
             System.out.println("0 - Voltar");
             System.out.print("Informe o código do aluno:");
             opcao = scan.nextInt();
 
-            if(opcao == 0) break;
-
             if(opcaoValida(opcao, opcoesDisponiveis)){
                 Menu2(opcao);
             }else{
-                System.out.println("Código Inválido, tente novamente.");
+                System.out.println("Código Inválido");
             }
 
         } while (opcao != 0);
@@ -59,7 +58,7 @@ public class MenuAluno extends MenuGenerico{
 
     protected void Menu2(int codigo){
         do {
-            System.out.println("#### INFORMAÇÕES ALUNO ####");
+            System.out.println("\n#### INFORMAÇÕES ALUNO ####");
             opcoesDisponiveis.clear();
             System.out.println("1- Mostrar turmas");
             System.out.println("2- Mostrar disciplinas");
