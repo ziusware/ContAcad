@@ -1,7 +1,5 @@
 package uniderp.poo.escola.dominio;
 
-import java.util.ArrayList;
-
 public class Trabalho extends PossuiDisciplina implements IImpressao{
     private String descricao;
 

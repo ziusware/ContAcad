@@ -2,9 +2,7 @@ package uniderp.poo.escola.dominio;
 
 import java.util.ArrayList;
 
-import uniderp.poo.escola.repositorio.NotaTrabalhoRepositorio;
 import uniderp.poo.escola.repositorio.RendimentoEscolarRepositorio;
-import uniderp.poo.escola.servico.NotaTrabalhoServico;
 
 public class RendimentoEscolar extends PossuiAluno implements IImpressao{
     
