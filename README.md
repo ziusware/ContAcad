@@ -6,7 +6,7 @@
      - [FakeDB](https://github.com/ziusware/Sistema-de-Controle-Acad-mico-ContAcad-/edit/main/ContAcad/README.md#diagrama-de-classe---fakedb)
      - [Repositório](https://github.com/ziusware/Sistema-de-Controle-Acad-mico-ContAcad-/edit/main/ContAcad/README.md#diagrama-de-classe---reposit%C3%B3rio)
      - [Serviço](https://github.com/ziusware/Sistema-de-Controle-Acad-mico-ContAcad-/edit/main/ContAcad/README.md#diagrama-de-classe---servi%C3%A7o)
-  - Código 
+   - Código 
   
 ## Diagrama de Classe - Domínio
 ![Dominio](/ContAcad/Diagramas/PNG/Dominio_Diagrama_Classe.png)
