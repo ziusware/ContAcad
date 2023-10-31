@@ -21,12 +21,12 @@ public class MenuNotas extends MenuGenerico{
                     System.out.println("Turma: " + rendimento.getTurma().getDisciplina().getNome());
                     System.out.println("Nota P1: " + rendimento.getNotaP1());
                     System.out.println("Nota P2: " + rendimento.getNotaP2());
-                    System.out.println("*** Nota Trabalhos ***");
+                    System.out.println("\t*** Nota Trabalhos ***");
                     NotaTrabalhoServico servNotaTrabalho = new NotaTrabalhoServico();
                     for (NotaTrabalho notaTrabalho : servNotaTrabalho.Listar()){
                         if (notaTrabalho.getAluno().getCodigo() ==  codigo) {
                             System.out.println(notaTrabalho.getTrabalhos().getDisciplina().getNome() + ": " + notaTrabalho.getNota());
-                            System.out.println("Descrição: " + notaTrabalho.getTrabalhos().getDescricao());
+                            //System.out.println("Descrição: " + notaTrabalho.getTrabalhos().getDescricao());
                             notasTrabalhos.add(notaTrabalho.getNota());
                         }
                     }
@@ -34,7 +34,7 @@ public class MenuNotas extends MenuGenerico{
                     System.out.println("Média Geral: " + rendimento.mediaGeral(notasTrabalhos));
                 }
             }
-            System.out.println("Digite 0 para voltar");
+            System.out.println("\nDigite 0 para voltar");
             opcao = scan.nextInt();
             
         } while (opcao != 0);

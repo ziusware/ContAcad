@@ -4,6 +4,7 @@ import uniderp.poo.escola.dominio.Aluno;
 import uniderp.poo.escola.dominio.Professor;
 import uniderp.poo.escola.dominio.Turma;
 import uniderp.poo.escola.servico.AlunoServico;
+import uniderp.poo.escola.servico.ProfessorServico;
 import uniderp.poo.escola.servico.TurmaServico;
 
 public class MenuTurma extends MenuGenerico{
@@ -17,7 +18,8 @@ public class MenuTurma extends MenuGenerico{
             TurmaServico servTurma = new TurmaServico();
             for (Turma turma : servTurma.Listar()) {
                 if (turma.getProfessores().getCodigo() == codigo) {
-                    for (Professor professor : repoProf.ReadAll()) {
+                    ProfessorServico profServ = new ProfessorServico();
+                    for (Professor professor : profServ.Listar()) {
                         if(professor.getCodigo() == turma.getProfessores().getCodigo()){
                            System.out.println(turma.getCodigo() + " - " + turma.getDisciplina().getNome());
                            opcoesDisponiveis.add(turma.getCodigo());
@@ -53,7 +55,7 @@ public class MenuTurma extends MenuGenerico{
                 }
                          
             }
-            System.out.println("Digite 0 para voltar");
+            System.out.println("\nDigite 0 para voltar");
             opcao = scan.nextInt();
             
         } while (opcao != 0);

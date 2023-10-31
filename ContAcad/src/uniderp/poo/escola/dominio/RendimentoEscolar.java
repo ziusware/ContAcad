@@ -58,7 +58,7 @@ public class RendimentoEscolar extends PossuiAluno implements IImpressao{
             totalNotas += notas.get(i);
         }
         double media = (double) totalNotas / notas.size();
-        return media;
+        return Math.round(media);
     }
 
     public double mediaGeral(ArrayList<Double> notas){
@@ -69,7 +69,7 @@ public class RendimentoEscolar extends PossuiAluno implements IImpressao{
 
         double notaGeral = totalNotasTrabalhos + this.notaP1 + this.notaP2;
         double media = (double) notaGeral / (notas.size() + 2);
-        return media;
+        return Math.round(media);
     }
 
     @Override
