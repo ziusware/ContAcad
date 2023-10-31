@@ -50,35 +50,4 @@ public class RendimentoEscolarFakeDB extends BaseGenericaFakeDB<RendimentoEscola
         super();
     }
 
-    private ArrayList<Integer> NotasAleatorios(){
-        Random rand = new Random();
-        ArrayList<Integer> notasTrabalho = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            int nota = rand.nextInt(11);
-            notasTrabalho.add(nota);
-        }
-        return notasTrabalho;
-    }
-
-    private double mediaTrabalhos(ArrayList<Integer> notas){
-        int totalNotas = 0;
-        for (int i = 0; i < notas.size(); i++) {
-            totalNotas += notas.get(i);
-        }
-
-        double media = (double) totalNotas / notas.size();
-        return media;
-    }
-
-    private double mediaGeral(ArrayList<Integer> notasTrabalhos, double notaP1, double notaP2){
-        double totalNotasTrabalhos = 0;
-        for (int i = 0; i < notasTrabalhos.size(); i++) {
-            totalNotasTrabalhos += notasTrabalhos.get(i);
-        }
-
-        double notaGeral = totalNotasTrabalhos + notaP1 + notaP2;
-        double media = (double) notaGeral / (notasTrabalhos.size() + 2);
-        return media;
-    }
-    
 }

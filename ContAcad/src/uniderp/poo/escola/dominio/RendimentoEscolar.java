@@ -1,5 +1,7 @@
 package uniderp.poo.escola.dominio;
 
+import java.util.ArrayList;
+
 import uniderp.poo.escola.repositorio.NotaTrabalhoRepositorio;
 import uniderp.poo.escola.repositorio.RendimentoEscolarRepositorio;
 import uniderp.poo.escola.servico.NotaTrabalhoServico;
@@ -52,6 +54,25 @@ public class RendimentoEscolar extends PossuiAluno implements IImpressao{
         this.trabalhos = trabalhos;
     }
 
+    public double mediaTrabalhos(ArrayList<Double> notas){
+        double totalNotas = 0;
+        for (int i = 0; i < notas.size(); i++) {
+            totalNotas += notas.get(i);
+        }
+        double media = (double) totalNotas / notas.size();
+        return media;
+    }
+
+    public double mediaGeral(ArrayList<Double> notas){
+        double totalNotasTrabalhos = 0;
+        for (int i = 0; i < notas.size(); i++) {
+            totalNotasTrabalhos += notas.get(i);
+        }
+
+        double notaGeral = totalNotasTrabalhos + this.notaP1 + this.notaP2;
+        double media = (double) notaGeral / (notas.size() + 2);
+        return media;
+    }
 
     @Override
     public void Imprimir() {

@@ -1,5 +1,7 @@
 package uniderp.poo.escola.menu;
 
+import java.util.ArrayList;
+
 import uniderp.poo.escola.dominio.NotaTrabalho;
 import uniderp.poo.escola.dominio.RendimentoEscolar;
 import uniderp.poo.escola.servico.NotaTrabalhoServico;
@@ -11,6 +13,7 @@ public class MenuNotas extends MenuGenerico{
     protected void Menu(int codigo) {
         do {
             RendimentoEscolarServico servRend = new RendimentoEscolarServico();
+            ArrayList<Double> notasTrabalhos = new ArrayList<Double>();
             for (RendimentoEscolar rendimento : servRend.Listar()) {
                 if(codigo == rendimento.getAluno().getCodigo()){
                     System.out.println("---------------------------------");
@@ -24,9 +27,11 @@ public class MenuNotas extends MenuGenerico{
                         if (notaTrabalho.getAluno().getCodigo() ==  codigo) {
                             System.out.println(notaTrabalho.getTrabalhos().getDisciplina().getNome() + ": " + notaTrabalho.getNota());
                             System.out.println("Descrição: " + notaTrabalho.getTrabalhos().getDescricao());
+                            notasTrabalhos.add(notaTrabalho.getNota());
                         }
                     }
-                    
+                    System.out.println("Média dos Trabalhos: " + rendimento.mediaTrabalhos(notasTrabalhos));
+                    System.out.println("Média Geral: " + rendimento.mediaGeral(notasTrabalhos));
                 }
             }
             System.out.println("Digite 0 para voltar");
